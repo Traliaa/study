@@ -6,23 +6,43 @@
 </head>
 <body>
 <script>
-
-    function cForF(c) {
-        let f;
-        return  f = (9 / 5) * c + 32
+    const a = 2233;
+    const b = 1513;
+    if (a > 0 && b >0) {
+        console.log(a - b)
+    } else if (a < 0 && b < 0){
+        console.log(a * b)
+    } else {
+        console.log(a + b)
     }
-    let temperature
-    temperature = prompt("Введи температуру в цельсиях");
-    temperature = cForF(temperature)
+    function sum(a,b) {
+        const c = a + b
+        return c
+    }
+    function multiplication(a,b) {
+        const c = a * b
+        return c
+    }
+    function division(a,b) {
+        const c = a / b
+        return c
+    }
+    function subtraction(a,b) {
+        const c = a - b
+        return c
+    }
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation){
+            case "+": return sum(arg1, arg2) ;
+            case "-": return subtraction(arg1, arg2) ;
+            case "/": return division(arg1, arg2) ;
+            case "*": return multiplication(arg1, arg2) ;
+        }
+    }
 
-    alert(`Температу по форенгейтуа ${temperature}`)
 
-
-    let admin
-    let name
-    name = "Василий"
-    admin = name
-    alert(admin)
+    let c = "*";
+    console.log(mathOperation(a,b,c))
 </script>
 </body>
 </html>
