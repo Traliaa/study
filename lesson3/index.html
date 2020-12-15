@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let a = 0
+    while (a <= 100) {
+        if (checked(a)) {
+            console.log(a)
+        }
+        a++
+    }
+    function checked(n){
+        if (n < 2) {
+            return false
+        } else if (n === 2) {
+            return true
+        }
+        let i = 2;
+        const limit = Math.sqrt(n);
+        while (i <= limit) {
+            if (n % i === 0) {
+                return false;
+            }
+            i +=1;
+        }
+        return true;
+    }
+
+    const arr1 = [
+        ['яблоко', 10, 'красное'],
+        ['лимон', 15, 'кислый'],
+        ['банан', 20, 'вкусный'],
+    ];
+
+
+    function countBasketPrice(arrFn) {
+        let sumAll = 0
+        for (const key in arrFn) {
+            sumAll = sumAll + arrFn[key][1]
+        }
+        return sumAll
+    }
+
+    console.log(countBasketPrice(arr1))
+
+    for (let i = 0; i <= 9; console.log(i++)){}
+
+    let a = prompt("Сколько строк в пирамиде?")
+    for (let i = 0; i <= a; i++) {
+        let string = ""
+        for (let c = 0; c <= i; c++ ) {
+            string = string + "x"
+        }
+        console.log(string)
+
+    }
+</script>
+</body>
+</html>
