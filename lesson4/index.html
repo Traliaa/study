@@ -6,5 +6,53 @@
 </head>
 <body>
 
+<script>
+    let i = prompt("Введи число до 999")
+
+
+    function toObject(number){
+        if ( number > 999) {
+            console.log("Число больше 999")
+            return new Object()
+        }
+        const a = number % 10
+        const b = number % 100 / 10
+        const c = number % 1000 / 100
+        const object =  {
+            'единицы': Math.floor(a),
+            'десятки': Math.floor(b),
+            'сотни': Math.floor(c)}
+        return object
+    }
+    console.log(toObject(i))
+
+  const bucket = {
+       products: [
+           {
+               title: 'лимон',
+               price: 12,
+               count: 3
+           },
+           {
+               title: 'яблоко',
+               price: 10,
+               count: 1
+           },
+           {
+               title: 'банан',
+               price: 20,
+               count: 5
+           },
+
+       ],
+       allPrice() {
+           return this.products.reduce( function (sum, element) {
+               return sum + element.price * element.count
+           }, 0)
+       }
+   }
+  console.log(bucket.allPrice())
+</script>
+
 </body>
 </html>
