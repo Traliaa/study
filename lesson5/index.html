@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="bucket"></div>
+<script>
+    function chess() {
+        let x = 8
+        let table = document.createElement("table");
+        document.body.appendChild(table);
+        table.style.marginLeft = "100px"
+        table.style.marginTop = "50px"
+        table.style.borderCollapse = "collapse"
+        for (let i = 0; i<=x; i++){
+            let tr = document.createElement("tr");
+
+            tr.className = i
+            tr.style.height = 30 +"px"
+            // tr.style.width = 30 * x +"px"
+            document.querySelector('table').appendChild(tr)
+            if  (i == 0) {
+                tr.style.backgroundColor = "none"
+                let td = document.createElement("td");
+                td.style.height = "30px"
+                td.style.width = "30px"
+                document.getElementsByClassName(i)[0].appendChild(td)
+                let string = [ "A", "B", "C", 'D', 'E', "F", "G", "H"]
+                for (let key in string) {
+
+                    let td = document.createElement("td");
+                    td.textContent = string[key]
+                    td.style.height = "30px"
+                    td.style.width = "30px"
+                    td.style.textAlign = "center"
+                    document.getElementsByClassName(i)[0].appendChild(td)
+
+                }
+
+            } else {
+            for (let y = 0; y<=x; y++){
+
+                let td = document.createElement("td");
+                if  (y == 0) {
+                    td.style.backgroundColor = "none"
+                    td.textContent = i
+                    td.style.textAlign = "center"
+                } else {
+                    if ((y + i) % 2 !== 0) {
+                        td.style.backgroundColor = "black"
+                    }
+                    td.style.border = "1px solid black"
+                }
+                td.style.height = "30px"
+                td.style.width = "30px"
+
+
+                document.getElementsByClassName(i)[0].appendChild(td)
+            }
+        }}
+    }
+
+
+    const bucket = {
+        products: [
+        ],
+        allPrice() {
+            return this.products.reduce( function (sum, element) {
+                return sum + element.price * element.count
+            }, 0)
+        },
+        countGoods(){
+            return this.products.length
+        },
+        render(){
+            let p = document.createElement("p");
+            if (this.allPrice() === 0){
+                p.textContent = `В корзине нет товаров`
+            } else {
+                p.textContent = `В корзине: ${this.countGoods()} товаров на сумму ${this.allPrice()} рублей`
+            }
+            document.getElementsByClassName("bucket")[0].appendChild(p)
+
+        },
+    }
+    bucket.render()
+    bucket.products.push( {
+        title: 'лимон',
+        price: 12,
+        count: 3
+    },
+        {
+            title: 'лимон',
+            price: 15,
+            count: 435
+        })
+    bucket.render()
+</script>
+</body>
+</html>
